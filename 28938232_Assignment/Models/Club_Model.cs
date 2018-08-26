@@ -32,5 +32,7 @@ namespace _28938232_Assignment.Models
                 .Property(e => e.Contact)
                 .IsUnicode(false);
         }
+
+        public System.Data.Entity.DbSet<_28938232_Assignment.Models.Event> Events { get; set; }
     }
 }

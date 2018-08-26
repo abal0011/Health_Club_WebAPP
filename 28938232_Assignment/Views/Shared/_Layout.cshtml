@@ -17,14 +17,18 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            @Html.ActionLink("FITTREE", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <a class="navbar-brand" href="Home">
+                <img src="/Content/image/FIT-TREE.png" width="30" height="30" align="left" alt="Logo">
+                FiTree
+            </a>          
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li>@Html.ActionLink("Home", "Index", "Home")</li>
                 <li>@Html.ActionLink("About", "About", "Home")</li>
                 <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                <li>@Html.ActionLink("Club", "Index", "clubs")</li>
+                <li>@Html.ActionLink("Clubs", "Index", "clubs")</li>
+                <li>@Html.ActionLink("Events","Index","Events")</li>
             </ul>
             @Html.Partial("_LoginPartial")
         </div>

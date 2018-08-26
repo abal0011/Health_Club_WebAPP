@@ -10,107 +10,107 @@ using _28938232_Assignment.Models;
 
 namespace _28938232_Assignment.Controllers
 {   [Authorize]
-    public class clubsController : Controller
+    public class EventsController : Controller
     {
         private Club_Model db = new Club_Model();
 
-        // GET: clubs
+        // GET: Events
         public ActionResult Index()
         {
-            return View(db.clubs.ToList());
+            return View(db.Events.ToList());
         }
 
-        // GET: clubs/Details/5
+        // GET: Events/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            club club = db.clubs.Find(id);
-            if (club == null)
+            Event @event = db.Events.Find(id);
+            if (@event == null)
             {
                 return HttpNotFound();
             }
-            return View(club);
+            return View(@event);
         }
 
-        // GET: clubs/Create
+        // GET: Events/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: clubs/Create
+        // POST: Events/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "id,Name,location,Description,Contact")] club club)
+        public ActionResult Create([Bind(Include = "id,Event1,detail,location,Contact")] Event @event)
         {
             if (ModelState.IsValid)
             {
-                db.clubs.Add(club);
+                db.Events.Add(@event);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(club);
+            return View(@event);
         }
 
-        // GET: clubs/Edit/5
+        // GET: Events/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            club club = db.clubs.Find(id);
-            if (club == null)
+            Event @event = db.Events.Find(id);
+            if (@event == null)
             {
                 return HttpNotFound();
             }
-            return View(club);
+            return View(@event);
         }
 
-        // POST: clubs/Edit/5
+        // POST: Events/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id,Name,location,Description,Contact")] club club)
+        public ActionResult Edit([Bind(Include = "id,Event1,detail,location,Contact")] Event @event)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(club).State = EntityState.Modified;
+                db.Entry(@event).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(club);
+            return View(@event);
         }
 
-        // GET: clubs/Delete/5
+        // GET: Events/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            club club = db.clubs.Find(id);
-            if (club == null)
+            Event @event = db.Events.Find(id);
+            if (@event == null)
             {
                 return HttpNotFound();
             }
-            return View(club);
+            return View(@event);
         }
 
-        // POST: clubs/Delete/5
+        // POST: Events/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            club club = db.clubs.Find(id);
-            db.clubs.Remove(club);
+            Event @event = db.Events.Find(id);
+            db.Events.Remove(@event);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
