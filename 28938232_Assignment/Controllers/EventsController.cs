@@ -15,6 +15,7 @@ namespace _28938232_Assignment.Controllers
         private Club_Model db = new Club_Model();
 
         // GET: Events
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View(db.Events.ToList());
